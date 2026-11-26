@@ -1,11 +1,11 @@
 "use client"
 
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 
-const Generate = () => {
+const GenerateForm = () => {
   
   const [links, setLinks] = useState([{ link: "", linkText: "" }]);
   const searchParams = useSearchParams();
@@ -174,5 +174,11 @@ const Generate = () => {
     </section>
   );
 };
+
+const Generate = () => (
+  <Suspense fallback={null}>
+    <GenerateForm />
+  </Suspense>
+);
 
 export default Generate;
