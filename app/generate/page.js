@@ -43,7 +43,7 @@ const GenerateForm = () => {
         redirect: "follow",
       };
 
-      const r = await fetch("api/add", requestOptions);
+      const r = await fetch("/api/add", requestOptions);
       const result = await r.json();
 
       if (result.success) {
