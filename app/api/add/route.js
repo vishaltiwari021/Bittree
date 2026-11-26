@@ -1,9 +1,9 @@
-import clientPromise from "@/lib/mongodb";
+import getClientPromise from "@/lib/mongodb";
 
 
 export async function POST(request){
     const body = await request.json();
-    const client = await clientPromise;
+    const client = await getClientPromise();
     const db = client.db("bittree");
     const collection = db.collection('link');
 

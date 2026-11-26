@@ -1,5 +1,5 @@
 import Link from "next/link";
-import clientPromise from "@/lib/mongodb";
+import getClientPromise from "@/lib/mongodb";
 import { notFound } from "next/navigation";
 import { connection } from "next/server";
 import { Suspense } from "react";
@@ -16,7 +16,7 @@ async function HandlePage({ params }) {
   const { handle } = await params;
   await connection();
 
-  const client = await clientPromise;
+  const client = await getClientPromise();
   const db = client.db("bittree");
   const collection = db.collection("link");
 
